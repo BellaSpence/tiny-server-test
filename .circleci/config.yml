@@ -30,4 +30,5 @@ jobs:
       - image: circleci/ruby:2.4.1
     steps:
       - checkout
+      - run: sleep 60
       - run: bash test.sh
