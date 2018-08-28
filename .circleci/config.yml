@@ -6,7 +6,7 @@ workflows:
       - medium
       - medium-plus
       - hold:
-          type: hold
+          type: approval
           requires:
             - medium-plus
       - broken_build
