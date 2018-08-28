@@ -6,9 +6,9 @@ workflows:
       - medium
       - medium-plus
       - hold:
-        type: hold
-        requires:
-          - medium-plus
+          type: hold
+          requires:
+            - medium-plus
       - broken_build
 
 resource_job_defaults: &resource_job_defaults
