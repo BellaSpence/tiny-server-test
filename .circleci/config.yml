@@ -23,3 +23,7 @@ jobs:
   medium-plus: # 3 vCPUs, 6GB RAM
     <<: *resource_job_defaults
     resource_class: medium+
+
+  broken_build:
+    steps:
+      run: bash test.sh
