@@ -5,11 +5,15 @@ workflows:
       - small
       - medium
       - medium-plus
+      - hold:
+        type: hold
+        requires:
+          - medium-plus
       - broken_build
 
 resource_job_defaults: &resource_job_defaults
   docker: [{image: 'circleci/ruby:2.4.1'}]
-  steps: [{run: 'sleep 60 && echo $CIRCLE_JOB'}]
+  steps: [{run: 'echo $CIRCLE_JOB'}]
 
 jobs:
   # resource class jobs
@@ -30,5 +34,4 @@ jobs:
       - image: circleci/ruby:2.4.1
     steps:
       - checkout
-      - run: sleep 60
       - run: bash test.sh
