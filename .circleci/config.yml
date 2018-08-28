@@ -3,13 +3,19 @@ workflows:
   resource_class_jobs:
     jobs:
       - small
-      - medium
+      - medium:
+          requires:
+            - small
       - medium-plus
+          requires:
+            - medium
       - hold:
           type: approval
           requires:
             - medium-plus
       - broken_build
+          requires:
+            - hold
 
 resource_job_defaults: &resource_job_defaults
   docker: [{image: 'circleci/ruby:2.4.1'}]
