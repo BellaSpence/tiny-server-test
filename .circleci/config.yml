@@ -1,0 +1,25 @@
+workflows:
+  version: 2
+  resource_class_jobs:
+    jobs:
+      - small
+      - medium
+      - medium-plus
+
+resource_job_defaults: &resource_job_defaults
+  docker: [{image: 'circleci/ruby:2.4.1'}]
+  steps: [{run: 'echo $CIRCLE_JOB'}]
+
+jobs:
+  # resource class jobs
+  small: # 1 vCPU, 2GB RAM
+    <<: *resource_job_defaults
+    resource_class: small
+
+  medium: # 2 vCPUs, 4GB RAM
+    <<: *resource_job_defaults
+    resource_class: medium
+
+  medium-plus: # 3 vCPUs, 6GB RAM
+    <<: *resource_job_defaults
+    resource_class: medium+
