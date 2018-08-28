@@ -26,5 +26,8 @@ jobs:
     resource_class: medium+
 
   broken_build:
+    docker: 
+      image: circleci/ruby:2.4.1
     steps:
+      - checkout
       - run: bash test.sh
