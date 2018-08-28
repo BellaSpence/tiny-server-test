@@ -6,14 +6,14 @@ workflows:
       - medium:
           requires:
             - small
-      - medium-plus
+      - medium-plus:
           requires:
             - medium
       - hold:
           type: approval
           requires:
             - medium-plus
-      - broken_build
+      - broken_build:
           requires:
             - hold
 
