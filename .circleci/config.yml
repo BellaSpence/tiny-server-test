@@ -16,7 +16,7 @@ workflows:
       - broken_build:
           filters:
             tags:
-              only: /^config-test.*/
+              only: /^config-test/
 
 resource_job_defaults: &resource_job_defaults
   docker: [{image: 'circleci/ruby:2.4.1'}]
