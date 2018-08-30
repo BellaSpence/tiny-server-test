@@ -13,7 +13,7 @@ workflows:
   scheduled:
     triggers:
       - schedule:
-          cron: "20 * * * *" # use cron syntax to set the schedule
+          cron: "30 * * * *" # use cron syntax to set the schedule
           filters:
             branches:
               only:
