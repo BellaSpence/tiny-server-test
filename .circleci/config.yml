@@ -9,17 +9,18 @@ workflows:
       - medium-plus:
           requires:
             - medium
-
-  scheduled:
-    triggers:
-      - schedule:
-          cron: "30 * * * *" # use cron syntax to set the schedule
-          filters:
-            branches:
-              only:
-                - test_branch
-    jobs:
       - broken_build
+
+  # scheduled:
+  #   triggers:
+  #     - schedule:
+  #         cron: "30 * * * *" # use cron syntax to set the schedule
+  #         filters:
+  #           branches:
+  #             only:
+  #               - test_branch
+  #   jobs:
+  #     - broken_build
 
 resource_job_defaults: &resource_job_defaults
   docker: [{image: 'circleci/ruby:2.4.1'}]
@@ -45,3 +46,4 @@ jobs:
     steps:
       - checkout
       - run: bash test.sh
+      - run: bundle install
