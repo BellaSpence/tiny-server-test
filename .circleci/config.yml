@@ -12,7 +12,7 @@ workflows:
 
   scheduled:
     triggers:
-      - broken_build:
+      - schedule:
           cron: "20 * * * *" # use cron syntax to set the schedule
           filters:
             branches:
