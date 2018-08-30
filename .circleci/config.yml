@@ -9,16 +9,15 @@ workflows:
       - medium-plus:
           requires:
             - medium
-      # - hold:
-      #     type: approval
-      #     requires:
-      #       - medium-plus
-      - broken_build:
+
+  scheduled:
+    triggers:
+      - schedule:
+          cron: "*/5 * * * *" # use cron syntax to set the schedule
           filters:
-            tags:
-              only: /^v.*/
             branches:
-              ignore: /.*/
+              only:
+                - broken_build
 
 resource_job_defaults: &resource_job_defaults
   docker: [{image: 'circleci/ruby:2.4.1'}]
