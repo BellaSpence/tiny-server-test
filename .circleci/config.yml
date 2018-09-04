@@ -47,12 +47,12 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - ruby-demo-{{ checksum "Gemfile.lock" }}
+            - ruby-demo-{{ checksum "Gemfile" }}
     
       - run: bash test.sh
       - run: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs 4 --retry 3
       
       - save_cache:
-          key: ruby-demo-{{ checksum "Gemfile.lock" }}
+          key: ruby-demo-{{ checksum "Gemfile" }}
           paths:
             - vendor/bundle
