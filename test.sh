@@ -1,2 +1,2 @@
-echo "Hi Mom!"
+echo "Hi Mom!!"
 exit 0
