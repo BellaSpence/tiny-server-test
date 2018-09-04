@@ -44,11 +44,11 @@ jobs:
     docker: 
       - image: circleci/ruby:2.4.1
     steps:
+      - checkout
       - restore_cache:
           keys:
             - gem-v1-{{ .Branch }}-{{ .Revision }}--{{ checksum "Gemfile" }}
-      
-      - checkout
+    
       - run: bash test.sh
       - run: bundle install
       
