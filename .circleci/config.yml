@@ -47,12 +47,12 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - gem-v1-{{ .Branch }}-{{ .Revision }}--{{ checksum "Gemfile" }}
+            - ruby-demo-{{ checksum "Gemfile.lock" }}
     
       - run: bash test.sh
       - run: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs 4 --retry 3
       
       - save_cache:
-          key: gem-v1-{{ .Branch }}-{{ .Revision }}-{{ checksum "Gemfile" }}
+          key: ruby-demo-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
