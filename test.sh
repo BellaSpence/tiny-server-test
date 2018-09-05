@@ -1,2 +1,2 @@
-echo "Hello World"
+echo "VAR_FOR_PR_TEST: $VAR_FOR_PR_TEST"
 exit 0
