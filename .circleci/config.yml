@@ -13,11 +13,7 @@ workflows:
       #     type: approval
       #     requires:
       #       - medium-plus
-      - broken_build:
-          filters:
-            branches:
-              only:
-                - test_branch
+      - broken_build
 
 resource_job_defaults: &resource_job_defaults
   docker: [{image: 'circleci/ruby:2.4.1'}]
